@@ -9,4 +9,10 @@ if (environment.production) {
 }
 
 platformBrowserDynamic().bootstrapModule(AppModule)
-  .catch(err => console.log(err));
+.then(() => {
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/ngsw-worker.js');
+    console.log('Angular está em execução no modo de desenvolvimento. Ligue enableProdMode () para habilitar o modo de produção.');
+  }
+})
+.catch(err => console.log(err));

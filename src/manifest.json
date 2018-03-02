@@ -1,0 +1,49 @@
+{
+    "name": "My Components",
+    "version": "1",
+    "short_name": "My Components",
+    "theme_color": "#de3a49",
+    "background_color": "#fff",
+    "display": "standalone",
+    "orientation": "any",
+    "start_url": "/?utm_source=homescreen",
+    "scope": "/",
+    "description":"Initial project to your learning",
+    "icons": [
+      {
+        "src": "assets/images",
+        "sizes": "36x36",
+        "type": "image/png"
+      },
+      {
+        "src": "assets/images",
+        "sizes": "48x48"
+      },
+      {
+        "src": "assets/images",
+        "sizes": "72x72",
+        "type": "image/png"
+      },
+      {
+        "src": "assets/images",
+        "sizes": "96x96",
+        "type": "image/png"
+      },
+      {
+        "src": "assets/images",
+        "sizes": "144x144",
+        "type": "image/png"
+      },
+      {
+        "src": "assets/images",
+        "sizes": "192x192",
+        "type": "image/png"
+      },
+      {
+        "src": "assets/images",
+        "sizes": "512x512",
+        "type": "image/png"
+      }
+    ]
+  
+  }
