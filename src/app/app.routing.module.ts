@@ -1,4 +1,4 @@
-import { HomeComponent } from './home/home.component';
+import { HomeComponent } from './pages/home/home.component';
 import { Routes, RouterModule } from '@angular/router';
 import { NgModule, Component, ModuleWithProviders } from '@angular/core';
 const appRoutes: Routes = [
