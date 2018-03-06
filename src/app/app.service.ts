@@ -28,9 +28,9 @@ export class AppService<TModel> {
   }
 
 
-  protected async getAllAsync(methodName: string): Promise<ValidationResultModel<TModel[]>> {
+  protected async getAllAsync(methodName: string): Promise<TModel[]> {
     const url = this.methodUrl(methodName);
-    const result = await this.http.get<ValidationResultModel<TModel[]>>(
+    const result = await this.http.get<TModel[]>(
       url,
       { headers: this.headers }
     ).toPromise();
@@ -38,9 +38,9 @@ export class AppService<TModel> {
     return result;
   }
 
-  protected async getAsync(methodName: string): Promise<ValidationResultModel<TModel>> {
+  protected async getAsync(methodName: string): Promise<TModel> {
     const url = this.methodUrl(methodName);
-    const result = await this.http.get<ValidationResultModel<TModel>>(
+    const result = await this.http.get<TModel>(
       url,
       { headers: this.headers }
     ).toPromise();
@@ -48,9 +48,9 @@ export class AppService<TModel> {
     return result;
   }
 
-  protected async postAsync(methodName: string, model: any): Promise<ValidationResultModel<TModel>> {
+  protected async postAsync(methodName: string, model: any): Promise<TModel> {
     const url = this.methodUrl(methodName);
-    const result = await this.http.post<ValidationResultModel<TModel>>(
+    const result = await this.http.post<TModel>(
       url,
       JSON.stringify(model),
       { headers: this.headers }
@@ -59,42 +59,43 @@ export class AppService<TModel> {
     return result;
   }
 
-  protected async signInAsync(model: any): Promise<ValidationResultModel<TModel>> {
-    const result = await this.http.post<ValidationResultModel<TModel>>(
+  protected async putAsync(methodName: string, model: any = null): Promise<TModel> {
+    const url = this.methodUrl(methodName);
+    const result = await this.http.put<TModel>(
+      url,
+      JSON.stringify(model),
+      { headers: this.headers }
+    ).toPromise();
+
+    return result;
+  }
+
+  protected async putAllAsync(methodName: string, model: any = null): Promise<TModel[]> {
+    const url = this.methodUrl(methodName);
+    const result = await this.http.put<TModel[]>(
+      url,
+      JSON.stringify(model),
+      { headers: this.headers }
+    ).toPromise();
+
+    return result;
+  }
+
+  protected async deleteAsync(methodName: string): Promise<TModel> {
+    const url = this.methodUrl(methodName);
+    const result = await this.http.delete<TModel>(
+      url,
+      { headers: this.headers }
+    ).toPromise();
+
+    return result;
+  }
+
+
+  protected async signInAsync(model: any): Promise<TModel> {
+    const result = await this.http.post<TModel>(
       `${environment.baseUrl}/${environment.versionBase}/token`,
       JSON.stringify(model),
-      { headers: this.headers }
-    ).toPromise();
-
-    return result;
-  }
-
-  protected async putAsync(methodName: string, model: any = null): Promise<ValidationResultModel<TModel>> {
-    const url = this.methodUrl(methodName);
-    const result = await this.http.put<ValidationResultModel<TModel>>(
-      url,
-      JSON.stringify(model),
-      { headers: this.headers }
-    ).toPromise();
-
-    return result;
-  }
-
-  protected async putAllAsync(methodName: string, model: any = null): Promise<ValidationResultModel<TModel[]>> {
-    const url = this.methodUrl(methodName);
-    const result = await this.http.put<ValidationResultModel<TModel[]>>(
-      url,
-      JSON.stringify(model),
-      { headers: this.headers }
-    ).toPromise();
-
-    return result;
-  }
-
-  protected async deleteAsync(methodName: string): Promise<ValidationResultModel<TModel>> {
-    const url = this.methodUrl(methodName);
-    const result = await this.http.delete<ValidationResultModel<TModel>>(
-      url,
       { headers: this.headers }
     ).toPromise();
 
