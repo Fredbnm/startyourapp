@@ -6,10 +6,10 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './pages/home/home.component';
-import { ButtonsComponent } from './components/buttons/buttons/buttons.component';
-import { GridsComponent } from './components/grids/grids/grids.component';
 import { InputsComponent } from './components/inputs/inputs/inputs.component';
 import { FormsModule } from '@angular/forms';
+import { AppServiceInterceptor } from './interceptors/app.service.interceptor';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 
 
@@ -18,8 +18,6 @@ import { FormsModule } from '@angular/forms';
     AppComponent,
     HeaderComponent,
     HomeComponent,
-    ButtonsComponent,
-    GridsComponent,
     InputsComponent
   ],
   imports: [
@@ -27,7 +25,9 @@ import { FormsModule } from '@angular/forms';
     AppRoutingModule,
     FormsModule
   ],
-  providers: [],
+  providers: [
+       { provide: HTTP_INTERCEPTORS, useClass: AppServiceInterceptor, multi: true }
+      ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
