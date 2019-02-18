@@ -1,0 +1,70 @@
+/* Table*/
+
+table.table {
+    width: 100%;
+    th,
+    td {
+        text-align: left;
+        padding: 0.25em;
+    }
+    thead {
+        @media screen and (max-width: 991px) {
+            display: none;
+        }
+    }
+    tbody {
+        tr {
+            border-bottom: 1px solid #DDD;
+            td {
+                @media screen and (max-width: 991px) {
+                    display: flex;
+                    justify-content: space-between;
+                }
+            }
+            td[data-title]:before {
+                float: left;
+                font-size: inherit;
+                font-weight: 400;
+                color: #757575;
+                @media screen and (max-width: 991px) {
+                    content: attr(data-title);
+                }
+            }
+        }
+    }
+    td.edit-buttons {
+        text-align: right;
+    }
+    button {
+        border-radius: 3px;
+        border: none;
+        margin: 0;
+        -webkit-transition: all 0.3s;
+        transition: all 0.3s;
+        font-size: 12px;
+        padding: 8px 15px;
+        background: #1ea2b1;
+        color: #fff;
+        font-weight: 600;
+        cursor: pointer;
+        text-transform: capitalize;
+        &:hover {
+            box-shadow: 0 0 4px rgba(3, 3, 3, 0.8);
+            opacity: 0.9;
+        }
+    }
+    @media screen and (max-width: 800px) {
+        tr {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            margin: 0.5em 0;
+            border: 1px solid rgba(3, 3, 3, 0.2);
+        }
+        td,
+        th {
+            width: 100%;
+            border: 0.5px solid rgba(3, 3, 3, 0.2);
+        }
+    }
+}
