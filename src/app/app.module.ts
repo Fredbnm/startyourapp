@@ -6,29 +6,28 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './pages/home/home.component';
-import { ButtonsComponent } from './components/buttons/buttons/buttons.component';
-import { GridsComponent } from './components/grids/grids/grids.component';
 import { InputsComponent } from './components/inputs/inputs/inputs.component';
 import { FormsModule } from '@angular/forms';
-import { NgLoadingSpinnerService } from './services/ng-loading-spinner/ng-loading-spinner.service';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { NgLoadingSpinnerInterceptor } from 'ng-loading-spinner';
+import { AppServiceInterceptor } from './interceptors/app.service.interceptor';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     HomeComponent,
-    ButtonsComponent,
-    GridsComponent,
     InputsComponent
   ],
   imports: [
-    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     FormsModule
   ],
-  providers: [NgLoadingSpinnerService, { provide: HTTP_INTERCEPTORS, useClass: NgLoadingSpinnerInterceptor, multi: true }],
+  providers: [
+       { provide: HTTP_INTERCEPTORS, useClass: AppServiceInterceptor, multi: true }
+      ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
