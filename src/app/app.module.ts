@@ -10,9 +10,9 @@ import { ButtonsComponent } from './components/buttons/buttons/buttons.component
 import { GridsComponent } from './components/grids/grids/grids.component';
 import { InputsComponent } from './components/inputs/inputs/inputs.component';
 import { FormsModule } from '@angular/forms';
-
-
-
+import { NgLoadingSpinnerService } from './services/ng-loading-spinner/ng-loading-spinner.service';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { NgLoadingSpinnerInterceptor } from 'ng-loading-spinner';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,11 +23,12 @@ import { FormsModule } from '@angular/forms';
     InputsComponent
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     FormsModule
   ],
-  providers: [],
+  providers: [NgLoadingSpinnerService, { provide: HTTP_INTERCEPTORS, useClass: NgLoadingSpinnerInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

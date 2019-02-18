@@ -1,4 +1,7 @@
 <div class="content">
+    <div [hidden]="!show" id="loading-bar-spinner">
+        <div class="spinner-icon"></div>
+    </div>
     <h1>Bem vindo a sua app Angular</h1>
     <app-inputs [type]="'password'" [(value)]="name"></app-inputs>
     <app-buttons></app-buttons>
