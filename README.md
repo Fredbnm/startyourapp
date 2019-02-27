@@ -23,6 +23,7 @@ To change the port of your application, add in angular-cli.json the  parameters
     }
   }</code></pre>
 
-
+## Example Grid Flexbox
+To disable, simply remove the component home 
 
 ### Thanks
