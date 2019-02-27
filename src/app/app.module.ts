@@ -6,7 +6,6 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './pages/home/home.component';
-import { InputsComponent } from './components/inputs/inputs/inputs.component';
 import { FormsModule } from '@angular/forms';
 import { AppServiceInterceptor } from './interceptors/app.service.interceptor';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -17,8 +16,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
   declarations: [
     AppComponent,
     HeaderComponent,
-    HomeComponent,
-    InputsComponent
+    HomeComponent
   ],
   imports: [
     BrowserModule,
