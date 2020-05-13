@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { NgLoadingSpinnerService } from '../../services';
+
 
 @Component({
   selector: 'app-home',
