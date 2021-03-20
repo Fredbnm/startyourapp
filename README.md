@@ -19,7 +19,7 @@ To change the port of your application, add in angular-cli.json the  parameters
     "styleExt": "css",
     "component": {},
     "serve": {
-      "port": 4500
+      "port": 4760
     }
   }</code></pre>
 
